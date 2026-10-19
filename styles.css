@@ -251,3 +251,191 @@ button {
   cursor: not-allowed;
   background: #fff;
 }
+
+/* Status banner */
+#status-banner {
+  display: block;
+  border-radius: var(--radius);
+  border-left: 6px solid var(--muted);
+  padding: 0.75rem 1rem;
+}
+
+#status-banner[hidden] {
+  display: none;
+}
+
+#status-banner h3 {
+  font-size: 0.95rem;
+}
+
+#status-banner p {
+  margin: 0.15rem 0 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+#status-banner.status-optimal {
+  background: var(--optimal-bg);
+  border-color: var(--optimal);
+  color: var(--optimal);
+}
+
+#status-banner.status-warning {
+  background: var(--warning-bg);
+  border-color: var(--warning);
+  color: var(--warning);
+}
+
+#status-banner.status-critical {
+  background: var(--critical-bg);
+  border-color: var(--critical);
+  color: var(--critical);
+}
+
+/* Log list + cards */
+#log-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.empty-state {
+  margin: 0;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--muted);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+}
+
+.log-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "title tag"
+    "time  tag"
+    "list  del";
+  gap: 0.25rem 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--muted);
+  border-radius: var(--radius);
+  background: #fff;
+}
+
+.log-card.status-optimal {
+  border-left-color: var(--optimal);
+}
+
+.log-card.status-warning {
+  border-left-color: var(--warning);
+}
+
+.log-card.status-critical {
+  border-left-color: var(--critical);
+}
+
+.log-card h3 {
+  grid-area: title;
+  font-size: 1.1rem;
+}
+
+.log-card time {
+  grid-area: time;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.readings {
+  grid-area: list;
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.25rem;
+}
+
+.readings li {
+  font-variant-numeric: tabular-nums;
+}
+
+.readings .label {
+  color: var(--muted);
+  margin-right: 0.3rem;
+}
+
+.status-tag {
+  grid-area: tag;
+  align-self: start;
+  justify-self: end;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+}
+
+.status-tag.status-optimal {
+  background: var(--optimal-bg);
+  color: var(--optimal);
+}
+
+.status-tag.status-warning {
+  background: var(--warning-bg);
+  color: var(--warning);
+}
+
+.status-tag.status-critical {
+  background: var(--critical-bg);
+  color: var(--critical);
+}
+
+.btn-delete {
+  grid-area: del;
+  align-self: end;
+  justify-self: end;
+  background: #fff;
+  color: var(--ink);
+  border-color: #8b9a90;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+.btn-delete:hover {
+  background: var(--critical-bg);
+  border-color: var(--critical);
+  color: var(--critical);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  main {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .log-card {
+    grid-template-columns: 1fr;
+    grid-template-areas: "title" "tag" "time" "list" "del";
+  }
+
+  .status-tag {
+    justify-self: start;
+  }
+
+  .btn-delete {
+    justify-self: start;
+  }
+}
