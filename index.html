@@ -35,5 +35,60 @@
           </select>
           <small class="error-msg"></small>
         </div>
-    </main>
-    </body>
+<div class="field">
+          <label for="ph">pH (unitless)</label>
+          <input id="ph" type="number" min="0" max="14" step="0.1" required placeholder="e.g. 6.2" inputmode="decimal">
+          <small class="hint">Allowed range: 0 to 14</small>
+          <small class="error-msg"></small>
+        </div>
+
+        <div class="field">
+          <label for="ec">EC (mS/cm)</label>
+          <input id="ec" type="number" min="0" max="20" step="0.01" required placeholder="e.g. 1.5" inputmode="decimal">
+          <small class="hint">Allowed range: 0 to 20</small>
+          <small class="error-msg"></small>
+        </div>
+
+        <div class="field">
+          <label for="temp">Air Temperature</label>
+          <div class="input-row">
+            <input id="temp" type="number" min="0" max="150" step="0.1" required placeholder="e.g. 68" inputmode="decimal">
+            <select id="temp-unit" aria-label="Temperature unit">
+              <option value="F">°F</option>
+              <option value="C">°C</option>
+            </select>
+          </div>
+          <small class="hint" id="temp-hint">Allowed range: 0 to 150 °F</small>
+          <small class="error-msg"></small>
+        </div>
+
+        <div class="field">
+          <label for="rh">Relative Humidity (%)</label>
+          <input id="rh" type="number" min="0" max="100" step="1" required placeholder="e.g. 60" inputmode="numeric">
+          <small class="hint">Allowed range: 0 to 100</small>
+          <small class="error-msg"></small>
+        </div>
+
+        <button type="submit" id="btn-record">Record Reading</button>
+      </form>
+    </section>
+
+    <section id="log-section" aria-labelledby="log-heading">
+      <header class="log-header">
+        <h2 id="log-heading">Telemetry Log <span id="count-badge" class="badge" aria-label="0 readings">0</span></h2>
+        <button id="btn-purge" type="button">Purge All Logs</button>
+      </header>
+
+      <section id="status-banner" role="status" aria-live="polite" hidden></section>
+
+      <section id="log-list" aria-label="Logged readings"></section>
+    </section>
+  </main>
+
+  <footer>
+    <p>Assignment 2B &ndash; System 2: Greenhouse Sensor Logger UI &ndash; Quentin Loree</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
