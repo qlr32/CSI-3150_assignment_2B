@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Greenhouse Sensor Logger</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Greenhouse Sensor Logger</h1>
+    <nav aria-label="Primary">
+      <a href="#record-section">Record</a>
+      <a href="#log-section">Logs</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="record-section" aria-labelledby="record-heading">
+      <h2 id="record-heading">Record Reading</h2>
+
+      <form id="reading-form" novalidate>
+        <div id="form-alert" class="form-alert" role="alert" hidden></div>
+
+        <div class="field">
+          <label for="bay">Greenhouse Bay</label>
+          <select id="bay" required>
+            <option value="">Select a bay</option>
+            <option value="Bay 1">Bay 1</option>
+            <option value="Bay 2">Bay 2</option>
+            <option value="Bay 3">Bay 3</option>
+            <option value="Bay 4">Bay 4</option>
+            <option value="Bay 5">Bay 5</option>
+            <option value="Bay 6">Bay 6</option>
+          </select>
+          <small class="error-msg"></small>
+        </div>
+    </main>
+    </body>
